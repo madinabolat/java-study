@@ -2,7 +2,7 @@ package org.example;
 
 public class Contact {
     public String name;
-    private String phoneNumber;
+    public String phoneNumber; //consider making this private
     private String email;
 
     public Contact(String name, String phoneNumber, String email){
