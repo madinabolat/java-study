@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MyFirstProjectTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-25T00:40:22" hostname="Madinas-Laptop.local" time="0.033">
+  <properties/>
+  <testcase name="start" classname="MyFirstProjectTest" time="0.033"/>
+  <system-out><![CDATA[?[1;31m
+Start test 1?[0m
+Prices:
+Bubblegum: $2
+Toffee: $0.2
+Ice cream: $5
+Milk chocolate: $4
+Doughnut: $2.5
+Pancake: $3.2
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
