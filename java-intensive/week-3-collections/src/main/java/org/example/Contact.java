@@ -1,9 +1,9 @@
 package org.example;
 
-public class Contact {
+public class Contact implements Comparable<Contact>{
     public String name;
     public String phoneNumber; //consider making this private
-    private String email;
+    public String email;
 
     public Contact(String name, String phoneNumber, String email){
         this.name = name;
@@ -14,5 +14,10 @@ public class Contact {
     @Override
     public String toString(){
         return "Contact{name="+name+", phone = "+phoneNumber+", email = "+email+"}";
+    }
+
+    @Override
+    public int compareTo(Contact example) {
+        return this.name.compareTo(example.name);
     }
 }

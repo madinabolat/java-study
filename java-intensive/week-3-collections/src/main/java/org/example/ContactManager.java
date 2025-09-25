@@ -1,13 +1,23 @@
 package org.example;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 public class ContactManager {
     ArrayList<Contact> contacts = new ArrayList<Contact>();
     HashMap<String, String> phoneNumbers = new HashMap<>();
+    HashMap<String, String> emails = new HashMap<>();
+
+
+    public void displayEmailDomains(){
+        HashSet<String> emailDomains = new HashSet<>();
+        for (Contact c : contacts){
+            int delimiterIndex = c.email.indexOf('@');
+            String emailDomain = c.email.substring(delimiterIndex+1);
+            emailDomains.add(emailDomain);
+        }
+        System.out.println(emailDomains);
+    }
 
     public void lookupPhoneNumber(String name){
         if (phoneNumbers.containsKey(name)){
@@ -16,7 +26,15 @@ public class ContactManager {
         else {
             System.out.println("This contact doesn't exist.");
         }
+    }
 
+    public void lookupByEmail(String email){
+        if (emails.containsKey(email)){
+            System.out.println("Contact with email" + email+": "+ emails.get(email));
+        }
+        else {
+            System.out.println("This contact doesn't exist.");
+        }
     }
 
     public void updatePhoneNumber(String name, String phoneNumber){
@@ -44,6 +62,7 @@ public class ContactManager {
         }
         contacts.add(contact);
         phoneNumbers.put(contact.name, contact.phoneNumber);
+        emails.put(contact.email, contact.name);
     }
 
     public void removeContact(Contact contact){
@@ -53,6 +72,7 @@ public class ContactManager {
             if (c.name.equals(contact.name)){
                 iterator.remove();
                 phoneNumbers.remove(contact.name);
+                emails.remove(contact.email);
                 //need to remove from iterator - not contacts
                 //no need to mention the element - it removes the current element it is pointing at
                 return;
@@ -66,6 +86,7 @@ public class ContactManager {
 
     public void displayAllContacts(){
         System.out.println("All contacts:");
+        Collections.sort(contacts);
         for (Contact contact : contacts){
             System.out.println(contact);
         }
